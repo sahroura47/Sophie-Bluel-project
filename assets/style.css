@@ -252,6 +252,10 @@ li:hover {
 	background-color: #1D6154;
 	color: #fff;
 }
+.filter-button.active{
+	background-color: #1D6154;
+	color: #fff;
+}
 .gallery {
 	width: 100%;
 	display: grid;
@@ -262,6 +266,7 @@ li:hover {
 
 .gallery img {
 	width: 100%;
+	margin-bottom: 10px;
 
 }
 
