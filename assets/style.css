@@ -90,6 +90,7 @@ video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: #FFFEF8;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -189,6 +190,7 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	cursor: pointer;
 }
 
 #introduction {
@@ -222,7 +224,41 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+/* Login */
+.loginContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 60px;
+}
+.loginContainer form{
+	margin-bottom: 40px;
+}
+.loginContainer label{
+	display: block;
+	margin: 20px 0 5px 0
+}
+.loginContainer input{
+	width: 379px;
+	height: 50px;
+	border: unset;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+}
+.loginButton{
+	width: 179px;
+	height: 36px;
+	border-radius: 60px;
+	background-color: #1D6154;
+	color: #fff;
+	font-weight: 500;
+	font-family: 'Syne';
+	cursor: pointer;
+	margin-bottom: 30px;
+}
+.passwordRecovery{
+	color: inherit;
+}
 /* filtres */
 
 .filters {
