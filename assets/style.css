@@ -232,7 +232,9 @@ li:hover {
 	padding: 60px;
 }
 .loginContainer form{
-	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+
 }
 .loginContainer label{
 	display: block;
@@ -245,6 +247,13 @@ li:hover {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 }
+.error{
+	color: red;
+	font-size: 12px;
+	padding: 10px;
+	align-self: center;
+	margin-top: 10px;
+}
 .loginButton{
 	width: 179px;
 	height: 36px;
@@ -254,7 +263,12 @@ li:hover {
 	font-weight: 500;
 	font-family: 'Syne';
 	cursor: pointer;
-	margin-bottom: 30px;
+	margin: 30px 0;
+	border: unset;
+	align-self: center;
+}
+.loginButton :hover{
+	background-color: #69948c;
 }
 .passwordRecovery{
 	color: inherit;

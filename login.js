@@ -28,6 +28,10 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             throw new Error()
 
         }
+        
+        localStorage.setItem('authToken', data.token);
+        window.location.href='/newHomePage.html';
+
 
     } catch (error) {
         errorMessage.innerText = 'Email ou mot de passe invalide!';

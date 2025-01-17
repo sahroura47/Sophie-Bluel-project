@@ -68,3 +68,4 @@ async function displayList(category = null) {
     }
 }
 displayList(); 
+ 
