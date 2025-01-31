@@ -62,7 +62,7 @@ async function displayList(category = null) {
         figure.appendChild(figureCaption);
         listContainer.appendChild(figure);
         projectsImg.src = project.imageUrl;
-        projectsImg.alt = "image chargée par l'API";
+        projectsImg.alt = project.title;
         figureCaption.innerHTML = project.title;
 
     }

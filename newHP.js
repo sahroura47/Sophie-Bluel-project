@@ -34,13 +34,55 @@ const modal=document.querySelector('.modal-container');
 const popup=document.getElementById('modal');
 
 openModal.addEventListener('click', (e) => {
-    e.preventDefault()
-    console.log('nn');
-    popup.style.display='flex'
-    closeModal.style.display='flex'
+    e.preventDefault();
+    popup.style.display='flex';
+    closeModal.style.display='flex';
+   function disableScroll (){
+    document.body.classList.add('body-no-scroll');
+   }
+   
+   disableScroll ()
+   displayListModal();
 });
 closeModal.addEventListener('click', () => {
     popup.style.display='none';
+    function enableScroll (){
+        document.body.classList.remove('body-no-scroll');
+       }
+       enableScroll ()
 });
 
+popup.addEventListener('click', (e) =>{
+    if (e.target === popup){
+    popup.style.display='none';
+}
+function enableScroll (){
+    document.body.classList.remove('body-no-scroll');
+   }
+       enableScroll ()
+})
 
+/* display des images dans la modale */
+
+async function displayListModal() {
+    const galleryList= await fetchData('works');
+    const galleryContainer=document.querySelector('.galleryModal');
+    galleryContainer.innerHTML='';
+    console.log(galleryContainer, galleryList);
+    for (i=0; i<galleryList.length; i++) {
+        const figure=document.createElement('div');
+        figure.classList.add('figureContainer');
+        const galleryImg=document.createElement('img');
+        galleryImg.classList.add('galleryImg');
+        galleryContainer.appendChild(figure);
+        figure.appendChild(galleryImg);
+        galleryImg.src=galleryList[i].imageUrl;
+        galleryImg.alt=galleryList[i].title;
+        const trashBin= document.createElement('i')
+        trashBin.classList.add('fa-solid', 'fa-trash-can');
+        figure.appendChild(trashBin);
+        console.log(figure);
+
+    }
+    
+}

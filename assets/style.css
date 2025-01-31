@@ -111,6 +111,9 @@ section {
 body {
 	line-height: 1;
 }
+.body-no-scroll{
+	overflow-y: hidden;
+}
 
 ol,
 ul {
@@ -141,6 +144,7 @@ body {
 	margin: auto;
 	font-family: 'Work Sans';
 	font-size: 14px;
+	margin-top: 100px;
 }
 
 header {
@@ -328,7 +332,26 @@ li:hover {
 .projectsContainer a {
 	margin-top: 10px;
 }
-
+/* Topbanner*/
+.topBanner{
+	width:100%;
+	background-color: #000;
+	height: 59px;
+	position: absolute;
+	left: 0;
+	top:0;
+}
+.topBannerContainer{
+	display: block;
+	position: absolute;
+	top:35%;
+	left: 50%;
+	background-color: #000;
+	color: #fff;
+}
+.topBannerContainer .fa-regular{
+	background-color: #000;
+}
 /* modale*/
 .modal {
 	display: none;
@@ -351,7 +374,7 @@ li:hover {
 	padding: 20px;
 	border-radius: 10px;
 	width: 80%;
-	max-width: 500px;
+	max-width: 630px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	text-align: center;
 }
@@ -374,10 +397,46 @@ li:hover {
 	font-weight: 400;
 	color: #000;
 }
-.devider{
+.galleryModal{
+	display: grid;
+	grid-template-columns: repeat(5, 80px);
+	grid-template-rows: repeat(3, 120px);
+	padding: 80px 80px 40px 80px;
+	gap: 10px;
+	margin-left: 20px;
+}
+.figureContainer{
+	width: 76.86px;
+	height:102.57px ;
+	position: relative;
+}
+.galleryImg{
+	width: 100%;
+	object-fit: cover;
+	align-self: center;
+}
+.fa-solid{
+	display: flex;
+	color: #fff;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	cursor: pointer;
+
+}
+.fa-trash-can{
+	background-color: #000;
+	border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider{
 	border: none;
     height: 1px;
-    width: 100%;
+    width: 70%;
     margin-top: 24px;
     margin-bottom: 24px;
     background-color: rgb(230, 230, 230);
