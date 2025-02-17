@@ -71,7 +71,24 @@
 								<i class="fa-solid fa-arrow-left"></i>
 							</span>
 						</div>
-						<h2>Ajout de photos </h2>
+						<div class="modal2container">
+						<h2>Ajout photos </h2>
+						<form class="formContainer">
+							<div class="fileContainer">
+								<i class="fa-regular fa-image"></i>
+								<bouton class="add"> + ajouter photos</bouton>
+								<p class="addText">jpg, png : 4mo max</p>
+							<input  type="file" style="display:none"  id="file" name="file"> 
+						</div> 
+						<h4> Titre</h4>
+							<input class="inputField" type="text" id="title" name="title">
+							<h4>Catégories</h4>
+							<select class="inputField"  style="appearance: none;"name="worksCategory" id="worksCategory">
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+							</select>
+						</form>
+					</div>
 					</div>
 				</div>
 			</dialog>
