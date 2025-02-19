@@ -148,7 +148,6 @@ returnButton.addEventListener('click',() => {
 });
 function dialogSwitch (element="list"){
     if (element==="list") {
-        console.log(element);
         firstModal.style.display="flex";
         newModal.style.display='none';
 
@@ -157,3 +156,18 @@ function dialogSwitch (element="list"){
         newModal.style.display='flex'; 
     }
 };
+
+const selectBar=document.querySelector(".selectOption");
+async function categoryList() {
+const categoryFetch= await fetchData('categories');
+for (i=0; i<categoryFetch.length; i++) {
+    const option=document.createElement('option');
+    const optionName=categoryFetch[i].name;
+    option.value=categoryFetch[i].id;
+    option.innerText=optionName;
+    selectBar.appendChild(option);
+    
+}
+};
+    categoryList()
+    
