@@ -169,5 +169,32 @@ for (i=0; i<categoryFetch.length; i++) {
     
 }
 };
-    categoryList()
-    
+    categoryList();
+
+    const photoAdd= document.querySelector('.add');
+    const inputPhoto=document.getElementById('file');
+    const photoContainer=document.querySelector(".filCont1");
+    photoAdd.addEventListener('click', () =>{
+        inputPhoto.click();
+    });
+    const Newimage=document.getElementById('newImg');
+    inputPhoto.addEventListener('change', (event) =>{
+        const selectedFile = event.target.files[0];
+        const file=selectedFile;
+        if (selectedFile) {
+            const reader= new FileReader();
+        reader.onload= function(e) {
+            const imgselected= document.createElement('img');
+            imgselected.src= e.target.result;
+            imgselected.alt='image chargée dynamiquement';
+            imgselected.classList.add('.imgSelected');
+            Newimage.appendChild(imgselected);
+            Newimage.style.display="flex";
+            photoContainer.style.display='none';
+
+        }; 
+        reader.readAsDataURL(file);
+    };
+});
+
+  
