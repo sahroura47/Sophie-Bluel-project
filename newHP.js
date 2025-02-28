@@ -34,7 +34,7 @@ const openModal = document.getElementById('modalPopup');
 const closeModal = document.getElementById('closeModal');
 const modal = document.querySelector('.modal-container');
 const dialog = document.getElementById('modal');
-firstModal= document.querySelector('.first-modal')
+firstModal = document.querySelector('.first-modal')
 
 function disableScroll() {
     document.body.classList.add('body-no-scroll');
@@ -56,15 +56,15 @@ function enableScroll() {
 };
 closeModal.addEventListener('click', () => {
     enableScroll();
-    dialog.style.display='none';
-    
+    dialog.style.display = 'none';
+
 
 });
 
 dialog.addEventListener('click', (e) => {
     if (e.target === dialog) {
         dialog.style.display = 'none';
-        
+
     }
     enableScroll()
 })
@@ -100,6 +100,7 @@ async function displayListModal() {
     };
 
 };
+const errorMessage = document.getElementById('error');
 async function deleteWork(id) {
     const errorMessage = document.getElementById('error');
     let token = localStorage.getItem('authToken');
@@ -122,79 +123,89 @@ async function deleteWork(id) {
     }
 };
 
-const addGallery=document.querySelector('.addPhotos');
-const newModal= document.querySelector('.second-modal');
-const pictosContainer= document.querySelector('.pictos');
-const returnButton=document.querySelector('.return');
-const close=document.getElementById('close');
-addGallery.addEventListener('click', () =>{
+const addGallery = document.querySelector('.addPhotos');
+const newModal = document.querySelector('.second-modal');
+const pictosContainer = document.querySelector('.pictos');
+const returnButton = document.querySelector('.return');
+const close = document.getElementById('close');
+addGallery.addEventListener('click', () => {
     dialog.style.display = 'flex';
-    newModal.style.display='flex';
-    pictosContainer.style.display='flex';
-    firstModal.style.display="none";
+    newModal.style.display = 'flex';
+    pictosContainer.style.display = 'flex';
+    firstModal.style.display = "none";
 
     disableScroll()
 });
 close.addEventListener('click', () => {
-    dialog.style.display='none';
+    dialog.style.display = 'none';
     enableScroll();
-   
+
 
 });
-returnButton.addEventListener('click',() => {
+returnButton.addEventListener('click', () => {
     dialogSwitch();
-
+    reinitState();
+    disableScroll()
 
 });
-function dialogSwitch (element="list"){
-    if (element==="list") {
-        firstModal.style.display="flex";
-        newModal.style.display='none';
+function dialogSwitch(element = "list") {
+    if (element === "list") {
+        firstModal.style.display = "flex";
+        newModal.style.display = 'none';
+        disableScroll();
 
-    } else { 
-         firstModal.style.display="none";
-        newModal.style.display='flex'; 
+
+    } else {
+        firstModal.style.display = "none";
+        newModal.style.display = 'flex';
     }
 };
 
-const selectBar=document.querySelector(".selectOption");
+const selectBar = document.querySelector(".selectOption");
 async function categoryList() {
-const categoryFetch= await fetchData('categories');
-for (i=0; i<categoryFetch.length; i++) {
-    const option=document.createElement('option');
-    const optionName=categoryFetch[i].name;
-    option.value=categoryFetch[i].id;
-    option.innerText=optionName;
-    selectBar.appendChild(option);
-    
-}
+    const categoryFetch = await fetchData('categories');
+    for (i = 0; i < categoryFetch.length; i++) {
+        const option = document.createElement('option');
+        const optionName = categoryFetch[i].name;
+        option.value = categoryFetch[i].id;
+        option.innerText = optionName;
+        selectBar.appendChild(option);
+
+    }
 };
-    categoryList();
+categoryList();
 
-    const photoAdd= document.querySelector('.add');
-    const inputPhoto=document.getElementById('file');
-    const photoContainer=document.querySelector(".filCont1");
-    photoAdd.addEventListener('click', () =>{
-        inputPhoto.click();
-    });
-    const Newimage=document.getElementById('newImg');
-    inputPhoto.addEventListener('change', (event) =>{
-        const selectedFile = event.target.files[0];
-        const file=selectedFile;
-        if (selectedFile) {
-            const reader= new FileReader();
-        reader.onload= function(e) {
-            const imgselected= document.createElement('img');
-            imgselected.src= e.target.result;
-            imgselected.alt='image chargée dynamiquement';
-            imgselected.classList.add('.imgSelected');
-            Newimage.appendChild(imgselected);
-            Newimage.style.display="flex";
-            photoContainer.style.display='none';
+const photoAdd = document.querySelector('.add');
+const inputPhoto = document.getElementById('file');
+const photoContainer = document.querySelector(".filCont1");
+photoAdd.addEventListener('click', () => {
+    inputPhoto.click();
+});
+const Newimage = document.getElementById('newImg');
+inputPhoto.addEventListener('change', (event) => {
+    const selectedFile = event.target.files[0];
+    const file = selectedFile;
+    if (selectedFile) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imgselected = document.getElementById('imgSelected');
+            imgselected.src = e.target.result;
+            Newimage.style.display = "flex";
+            photoContainer.style.display = 'none';
 
-        }; 
+        };
         reader.readAsDataURL(file);
+
     };
 });
+const inputField=document.getElementById('title');
+const selector=document.getElementById("worksCategory");
+function reinitState() {
+    photoContainer.style.display = 'flex';
+    Newimage.style.display = 'none';
+    inputPhoto.value = '';
+    errorMessage.innerText='';
+    selector.innerHTML='';
+    inputField.innerText='';
 
-  
+};
