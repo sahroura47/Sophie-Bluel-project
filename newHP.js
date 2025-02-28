@@ -64,10 +64,12 @@ closeModal.addEventListener('click', () => {
 dialog.addEventListener('click', (e) => {
     if (e.target === dialog) {
         dialog.style.display = 'none';
+        reinitState();
+        enableScroll()
+
 
     }
-    enableScroll()
-})
+});
 
 /* display des images dans la modale */
 
@@ -89,7 +91,6 @@ async function displayListModal() {
         trashBin.classList.add('fa-solid', 'fa-trash-can');
         trashBin.dataset.id = galleryList[i].id;
         figure.appendChild(trashBin);
-        console.log(figure);
         trashBin.addEventListener('click', (event) => {
             const id = event.target.dataset.id;
             deleteWork(id);
@@ -100,10 +101,9 @@ async function displayListModal() {
     };
 
 };
+let token = localStorage.getItem('authToken');
 const errorMessage = document.getElementById('error');
 async function deleteWork(id) {
-    const errorMessage = document.getElementById('error');
-    let token = localStorage.getItem('authToken');
     try {
         const response = await fetch(API_URL + "works/" + id, {
             method: 'DELETE',
@@ -139,6 +139,8 @@ addGallery.addEventListener('click', () => {
 close.addEventListener('click', () => {
     dialog.style.display = 'none';
     enableScroll();
+    reinitState();
+
 
 
 });
@@ -205,7 +207,45 @@ function reinitState() {
     Newimage.style.display = 'none';
     inputPhoto.value = '';
     errorMessage.innerText='';
-    selector.innerHTML='';
-    inputField.innerText='';
+    inputField.value='';
+    selectBar.selectedIndex=0;
 
 };
+
+async function addForm(){
+    const imageFile=document.getElementById('file').files[0];
+    const title=document.getElementById('title').value;
+    const category=document.getElementById('worksCategory').value;
+    const formData=new FormData();
+    console.log(title, category, imageFile)
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('image', imageFile);
+    console.log(formData.values())
+    try{
+        const response= await fetch(API_URL+ 'works', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer '+ token,
+                
+            },
+            body:formData
+        });
+        if (response.ok) {
+            alert("Item added successfully!");
+            displayList();  
+        } else {
+            alert("Error: " + data.error);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+        
+    };
+    const validate=document.getElementById("submit");
+    validate.addEventListener("click", (event) => {
+    console.log('aaa')
+    addForm();
+    displayListModal()
+console.log(validate);
+});
