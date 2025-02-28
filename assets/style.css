@@ -358,6 +358,14 @@ li:hover {
 }
 
 /* modale*/
+#logout{
+	text-decoration: none;
+	color: inherit;
+}
+#modalPopup{
+	text-decoration: none;
+	color: inherit;
+}
 .modal {
 	display: flexq;
 	position: fixed;
@@ -574,8 +582,7 @@ li:hover {
 }
 
 .modal2container {
-	padding: 40px 80px 0 80px;
-	gap: 30px;
+	padding: 0 80px 0 80px;
 	display: flex;
 	flex-direction: column;
 
@@ -592,6 +599,9 @@ li:hover {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 8px;
+}
+#file{
+	display: none;
 }
 .inputField {
 	width: 100%;

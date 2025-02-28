@@ -26,7 +26,7 @@
 			<ul>
 				<li>projets</li>
 				<li>contact</li>
-				<li><a href="#" style="text-decoration:none; color: inherit;">logout</a></li>
+				<li><a href="#" id="logout">logout</a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -50,7 +50,7 @@
 		<section id="portfolio">
 			<div class="projectsContainer">
 				<h2>Mes Projets</h2>
-				<a href="#" id="modalPopup" style="text-decoration: none; color: inherit;">
+				<a href="#" id="modalPopup" >
 					<i class="fa-regular fa-pen-to-square"></i> modifier
 				</a>
 			</div>
@@ -73,13 +73,14 @@
 						</div>
 						<div class="modal2container">
 							<h2>Ajout photos </h2>
+							<div id='errorMessage' class="error-message"></div>
 							<form class="formContainer">
 								<div class="fileContainer">
 									<div class="filCont1">
 										<i class="fa-regular fa-image"></i>
 										<bouton class="add"> + ajouter photos</bouton>
 										<p class="addText">jpg, png : 4mo max</p>
-										<input type="file" style="display:none" id="file" name="file">
+										<input type="file"  id="file" name="file" accept="file/png, file/jpeg, file/jpg"  />
 									</div>
 									<div class="newImg" id="newImg">
 										<img class="imgSelected" id="imgSelected" alt='image chargée dynamiquement'/>
@@ -94,7 +95,7 @@
 									<option></option>
 								</select>
 								<hr class="divider">
-								<button type="button" id="submit" class="addPhotos"> Valider </button>
+								<button type="submit" id="submit" class="addPhotos"> Valider </button>
 							</form>
 						</div>
 					</div>
@@ -125,7 +126,7 @@
 			</ul>
 		</nav>
 	</footer>
-	<script src="newHP.js"></script>
+	<script src="newHP.js" ></script>
 
 </body>
 

@@ -5,6 +5,8 @@ const fetchData = async (resource) => {
     const response = await fetch(API_URL + resource);
     return await response.json();
 }
+enableScroll();
+
 /* Display des images */
 
 const listContainer = document.querySelector(".gallery");
@@ -102,7 +104,7 @@ async function displayListModal() {
 
 };
 let token = localStorage.getItem('authToken');
-const errorMessage = document.getElementById('error');
+const errorMessage = document.getElementById('errorMessage');
 async function deleteWork(id) {
     try {
         const response = await fetch(API_URL + "works/" + id, {
@@ -164,6 +166,7 @@ function dialogSwitch(element = "list") {
 };
 
 const selectBar = document.querySelector(".selectOption");
+const validate=document.getElementById("submit");
 async function categoryList() {
     const categoryFetch = await fetchData('categories');
     for (i = 0; i < categoryFetch.length; i++) {
@@ -172,6 +175,7 @@ async function categoryList() {
         option.value = categoryFetch[i].id;
         option.innerText = optionName;
         selectBar.appendChild(option);
+validate.removeAttribute('disabled');
 
     }
 };
@@ -217,35 +221,51 @@ async function addForm(){
     const title=document.getElementById('title').value;
     const category=document.getElementById('worksCategory').value;
     const formData=new FormData();
-    console.log(title, category, imageFile)
     formData.append('title', title);
     formData.append('category', category);
     formData.append('image', imageFile);
-    console.log(formData.values())
-    try{
-        const response= await fetch(API_URL+ 'works', {
-            method: 'POST',
-            headers: {
-                'Authorization': 'Bearer '+ token,
-                
-            },
-            body:formData
-        });
-        if (response.ok) {
-            alert("Item added successfully!");
-            displayList();  
-        } else {
-            alert("Error: " + data.error);
+    console.log(imageFile, title, category);
+    if (imageFile!= undefined && title!='' && category!='') {
+        try{
+            const response= await fetch(API_URL+ 'works', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer '+ token,
+                    
+                },
+                body:formData
+            });
+            if (response.ok) {
+                alert("Element ajouté avec succés!");
+                displayList(); 
+                const modal=document.getElementById('modal');
+                modal.style.display='none'; 
+                reinitState();
+                enableScroll();
+            } 
+        } catch (error) {
+            console.error("Error:", error);
         }
-    } catch (error) {
-        console.error("Error:", error);
+    }
+    else {
+        errorMessage.innerText = "erreur lors de l'ajout"
     }
         
     };
-    const validate=document.getElementById("submit");
+
     validate.addEventListener("click", (event) => {
     console.log('aaa')
     addForm();
     displayListModal()
 console.log(validate);
 });
+function logout(){
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+    window.location.href='/login.html'
+};
+const logoutBtn=document.getElementById('logout');
+logoutBtn.addEventListener('click', () =>{
+    logout();
+    console.log(logoutBtn);
+})
