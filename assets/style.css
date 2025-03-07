@@ -235,7 +235,7 @@ li:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 60px;
+	padding: 60px 60px 0  60px;
 }
 
 .loginContainer form {
@@ -284,6 +284,8 @@ li:hover {
 }
 
 .passwordRecovery {
+	display: flex;
+	justify-content: center;
 	color: inherit;
 }
 

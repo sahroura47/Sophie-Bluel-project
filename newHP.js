@@ -225,7 +225,7 @@ async function addForm(){
     formData.append('category', category);
     formData.append('image', imageFile);
     console.log(imageFile, title, category);
-    if (imageFile!= undefined && title!='' && category!='') {
+    if (imageFile!= 'undefined' && title!='' && category!='') {
         try{
             const response= await fetch(API_URL+ 'works', {
                 method: 'POST',
