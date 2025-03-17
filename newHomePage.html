@@ -79,12 +79,12 @@
 								<div class="fileContainer">
 									<div class="filCont1">
 										<i class="fa-regular fa-image"></i>
-										<button role="button" type="button" class="add"> + ajouter photos</button>
+										<button  type="button" class="add"> + ajouter photos</button>
 										<p class="addText">jpg, png : 4mo max</p>
 										<input type="file"  id="file" name="file" accept="file/png, file/jpeg, file/jpg"  />
 									</div>
 									<div class="newImg" id="newImg">
-										<img class="imgSelected" id="imgSelected"  src='' alt='image chargée dynamiquement'/>
+										<img class="imgSelected" id="imgSelected"  src='placeholder.jpg' alt='image chargée dynamiquement'/>
 									</div>
 
 								</div>
@@ -93,7 +93,7 @@
 								<h4>Catégories</h4>
 								<select class="selectOption" style="appearance: none; " name="worksCategory"
 									id="worksCategory" required>
-									<option value=""></option>
+									<option value="" >&nbsp; </option>
 								</select>
 								<hr class="divider">
 								<button type="submit" id="submit" class="addPhotos"> Valider </button>
