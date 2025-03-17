@@ -1,8 +1,14 @@
 const API_URL = "http://localhost:5678/api/"
 
+const projectBtn= document.getElementById('projects');
+projectBtn.addEventListener('click', () => {
+    window.location.href='/index.html';
+});
+
 
 document.getElementById("loginForm").addEventListener("submit", async function (event) {
     event.preventDefault();
+
 
     const email = document.getElementById("emailAddress").value;
     const password = document.getElementById("password").value;

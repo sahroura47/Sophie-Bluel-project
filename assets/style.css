@@ -235,7 +235,7 @@ li:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 60px;
+	padding: 60px 60px 0  60px;
 }
 
 .loginContainer form {
@@ -284,6 +284,8 @@ li:hover {
 }
 
 .passwordRecovery {
+	display: flex;
+	justify-content: center;
 	color: inherit;
 }
 
@@ -358,6 +360,14 @@ li:hover {
 }
 
 /* modale*/
+#logout{
+	text-decoration: none;
+	color: inherit;
+}
+#modalPopup{
+	text-decoration: none;
+	color: inherit;
+}
 .modal {
 	display: flexq;
 	position: fixed;
@@ -381,7 +391,7 @@ li:hover {
 	padding: 20px;
 	border-radius: 10px;
 	width: 100%;
-	height: 85%;
+	height: 100%;
 	max-width: 630px;
 	max-height: 688px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -466,6 +476,14 @@ li:hover {
 	align-self: center;
 	margin-top: 10px;
 }
+.successMessage{
+	color: green;
+	font-size: 12px;
+	padding: 10px;
+	align-self: center;
+	margin-top: 10px;
+}
+
 
 .divider {
 	border: none;
@@ -538,7 +556,7 @@ li:hover {
 	justify-content: center;
 	background-color: #E8F1F6;
 	width: 100%;
-	height: 100%;
+	height: 200px;
 	gap: 8px;
 	margin-bottom: 20px;
 }
@@ -565,6 +583,7 @@ li:hover {
 	align-self: center;
 	align-content: center;
 	cursor: pointer;
+	border: none;
 
 }
 
@@ -574,8 +593,7 @@ li:hover {
 }
 
 .modal2container {
-	padding: 40px 80px 0 80px;
-	gap: 30px;
+	padding: 0 80px 0 80px;
 	display: flex;
 	flex-direction: column;
 
@@ -585,15 +603,41 @@ li:hover {
 	justify-content: center;
 	background-color: inherit;
 }
-
+.filCont1{
+	display: flex;
+	flex-direction: column;
+	background-color: inherit;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+#file{
+	display: none;
+}
 .inputField {
 	width: 100%;
-	height: 80px;
+	height: 50px;
 	border: unset;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	margin-bottom: 20px;
 }
+.imgSelected{
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	background-color: inherit;
+}
+.newImg{
+	display: none;
+	height: 200px;
+	justify-content: center;
+	flex-direction: column;
+	background-color: inherit;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
 
+}
 h4 {
 	font-size: 14px;
 	font-weight: 500;
@@ -602,7 +646,7 @@ h4 {
 }
 .selectOption{
 	width: 100%;
-	height: 80px;
+	height: 50px;
 	padding-left: 10px;
 	border: unset;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
