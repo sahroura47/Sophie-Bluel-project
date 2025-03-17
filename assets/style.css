@@ -476,6 +476,14 @@ li:hover {
 	align-self: center;
 	margin-top: 10px;
 }
+.successMessage{
+	color: green;
+	font-size: 12px;
+	padding: 10px;
+	align-self: center;
+	margin-top: 10px;
+}
+
 
 .divider {
 	border: none;

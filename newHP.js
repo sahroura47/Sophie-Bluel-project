@@ -46,6 +46,8 @@ openModal.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.style.display = 'flex';
     dialogSwitch();
+    reinitState();
+
 
 
 
@@ -239,12 +241,14 @@ async function addForm(){
                 body:formData
             });
             if (response.ok) {
-               
-                alert("Element ajouté avec succés!");
-                displayList(); 
-                const modal=document.getElementById('modal');
-                modal.style.display='none'; 
+                const successMsg=document.getElementById('successMessage');
+                successMsg.innerText='image ajoutée avec succés!';
+                setTimeout(() => {
+                    successMsg.innerText='';
+
+                },2000);
                 reinitState();
+                displayList(); 
                 enableScroll();
               
             } 
@@ -253,9 +257,9 @@ async function addForm(){
         }
     }
     else {
-        errorMessage.innerText = "erreur lors de l'ajout"
+        errorMessage.innerText = "erreur lors de l'ajout";
     }
-        
+
     }
 const fileContent=document.getElementById('file');
 const titleInput=document.getElementById('title');
@@ -279,14 +283,13 @@ categorySelect.addEventListener('change',()=>{
     }
 });
    
-
     validate.addEventListener("click", (event) => {
         event.preventDefault();
         addForm();
         displayListModal();
         displayList();
 
-    });
+        });
 function logout(){
     localStorage.removeItem('token');
     sessionStorage.removeItem('token');
