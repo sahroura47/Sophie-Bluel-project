@@ -228,6 +228,7 @@ async function addForm(){
     formData.append('image', imageFile);
 
     if (imageFile!== undefined  && title!=='' && category!==''){
+
         try{
             const response= await fetch(API_URL+ 'works', {
                 method: 'POST',
@@ -238,12 +239,14 @@ async function addForm(){
                 body:formData
             });
             if (response.ok) {
+               
                 alert("Element ajouté avec succés!");
                 displayList(); 
                 const modal=document.getElementById('modal');
                 modal.style.display='none'; 
                 reinitState();
                 enableScroll();
+              
             } 
         } catch (error) {
             console.error("Error:", error);
@@ -254,10 +257,31 @@ async function addForm(){
     }
         
     }
+const fileContent=document.getElementById('file');
+const titleInput=document.getElementById('title');
+const categorySelect=document.getElementById('worksCategory');
+console.log(fileContent)
+fileContent.addEventListener('change', ()=>{
+    if (fileContent.files[0]!== undefined){
+        errorMessage.innerHTML="";
+    }
+});
+titleInput.addEventListener('input', () =>{
+    console.log('ok')
+    if (titleInput.value!==""){
+        errorMessage.innerHTML="";
+    }
+});
+categorySelect.addEventListener('change',()=>{
+    if(categorySelect.value!==''){
+        errorMessage.innerHTML="";
+
+    }
+});
+   
 
     validate.addEventListener("click", (event) => {
         event.preventDefault();
-        console.log('aaa')
         addForm();
         displayListModal();
         displayList();
