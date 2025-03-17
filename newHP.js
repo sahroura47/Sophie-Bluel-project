@@ -117,6 +117,7 @@ async function deleteWork(id) {
         if (!response.ok) {
             throw new Error();
         }
+        displayList();
 
         document.getElementById('figure' + id).remove();
     } catch (error) {
@@ -142,6 +143,7 @@ close.addEventListener('click', () => {
     dialog.style.display = 'none';
     enableScroll();
     reinitState();
+    displayList();
 
 
 
@@ -224,8 +226,8 @@ async function addForm(){
     formData.append('title', title);
     formData.append('category', category);
     formData.append('image', imageFile);
-    console.log(imageFile, title, category);
-    if (imageFile!= 'undefined' && title!='' && category!='') {
+
+    if (imageFile!== undefined  && title!=='' && category!==''){
         try{
             const response= await fetch(API_URL+ 'works', {
                 method: 'POST',
@@ -251,14 +253,16 @@ async function addForm(){
         errorMessage.innerText = "erreur lors de l'ajout"
     }
         
-    };
+    }
 
     validate.addEventListener("click", (event) => {
-    console.log('aaa')
-    addForm();
-    displayListModal()
-console.log(validate);
-});
+        event.preventDefault();
+        console.log('aaa')
+        addForm();
+        displayListModal();
+        displayList();
+
+    });
 function logout(){
     localStorage.removeItem('token');
     sessionStorage.removeItem('token');
