@@ -246,7 +246,7 @@ async function addForm(){
                 setTimeout(() => {
                     successMsg.innerText='';
 
-                },2000);
+                },3000);
                 reinitState();
                 displayList(); 
                 enableScroll();
