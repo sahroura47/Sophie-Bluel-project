@@ -28,17 +28,13 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         const data = await response.json();
         if (response.ok){
             localStorage.setItem('authToken', data.token);
-            window.location.href='/newHomePage.html';
+            window.location.href='/editor.html';
         }
-        if (!response.ok) {
+        else {
             throw new Error()
 
         }
         
-        localStorage.setItem('authToken', data.token);
-        window.location.href='/newHomePage.html';
-
-
     } catch (error) {
         errorMessage.innerText = 'Email ou mot de passe invalide!';
     }

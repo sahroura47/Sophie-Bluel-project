@@ -7,8 +7,8 @@ const fetchData = async (resource) => {
 
 }
 
+/** gestion des boutons**/
 
-/*filtres*/
 
 const buttonContainer = document.querySelector(".filters");
 async function displayButtons() {
@@ -27,13 +27,13 @@ async function displayButtons() {
 
 }
 displayButtons();
-
+/*filtres*/
 
 const listContainer = document.querySelector(".gallery");
 const buttons = document.querySelectorAll('.filter-button');
 console.log(buttons);
 buttonContainer.addEventListener("click", (event) => {
-    if (event.target.tagName === 'BUTTON') {
+    if (event.target.tagName === 'BUTTON' && !event.target.classList.contains('active')) {
         const buttonActive = document.querySelector(".filter-button.active");
         buttonActive.classList.remove('active');
         event.target.classList.add('active');
@@ -42,7 +42,7 @@ buttonContainer.addEventListener("click", (event) => {
 
 });
 
-
+/*** affichage de la liste des projects en fonction des filtres ***/
 
 async function displayList(category = null) {
     let projects = await fetchData("works");
