@@ -42,7 +42,7 @@ buttonContainer.addEventListener("click", (event) => {
 
 });
 
-/*** affichage de la liste des projects ***/
+/*** affichage de la liste des projects en fonction des filtres ***/
 
 async function displayList(category = null) {
     let projects = await fetchData("works");
