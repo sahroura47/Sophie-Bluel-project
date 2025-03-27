@@ -28,7 +28,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         const data = await response.json();
         if (response.ok){
             localStorage.setItem('authToken', data.token);
-            window.location.href='/newHomePage.html';
+            window.location.href='/editor.html';
         }
         else {
             throw new Error()

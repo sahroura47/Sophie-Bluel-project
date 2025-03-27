@@ -249,6 +249,7 @@ async function addForm(){
                 },3000);
                 reinitState();
                 displayList(); 
+                displayListModal();
                 enableScroll();
               
             } 
