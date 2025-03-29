@@ -2,6 +2,7 @@ const API_URL = "http://localhost:5678/api/"
 
 const projectBtn= document.getElementById('projects');
 projectBtn.addEventListener('click', () => {
+    localStorage.removeItem('authToken');
     window.location.href='/index.html';
 });
 
@@ -28,7 +29,8 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         const data = await response.json();
         if (response.ok){
             localStorage.setItem('authToken', data.token);
-            window.location.href='/editor.html';
+            window.location.href='/index.html';
+            loadEditor();
         }
         else {
             throw new Error()

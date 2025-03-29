@@ -341,6 +341,7 @@ li:hover {
 
 /* Topbanner*/
 .topBanner {
+	display: none;
 	width: 100%;
 	background-color: #000;
 	height: 59px;
@@ -350,7 +351,7 @@ li:hover {
 }
 
 .topBannerContainer {
-	display: block;
+	display: none;
 	position: absolute;
 	top: 35%;
 	left: 50%;
@@ -368,6 +369,7 @@ li:hover {
 	color: inherit;
 }
 #modalPopup{
+	display: none;
 	text-decoration: none;
 	color: inherit;
 }
@@ -512,7 +514,11 @@ li:hover {
 	cursor: pointer;
 	width: 50%;
 }
-
+.addPhotos:disabled{
+	background-color: gray; 
+    cursor: not-allowed;     
+    opacity: 0.5; 
+}
 /* nouvelle modale */
 .second-modal {
 	display: none;
@@ -661,6 +667,8 @@ h4 {
 	color: #6C6C6C;
 	appearance: none;
 }
+
+  
 
 /*-------*/
 .gallery {

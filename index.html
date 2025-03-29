@@ -7,10 +7,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+	<aside class="topBanner" aria-label="information éditeur">
+		<div class="topBannerContainer">
+			<i class="fa-regular fa-pen-to-square"> </i> Mode Editeur
+		</div>
+	</aside>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
@@ -35,10 +41,63 @@
 		</article>
 	</section>
 	<section id="portfolio">
+		<div class="projectsContainer">
 		<h2>Mes Projets</h2>
+		<a href="#" id="modalPopup" >
+			<i class="fa-regular fa-pen-to-square"></i> modifier
+		</a>
+	</div>
 		<div class="filters" id="buttons-container">
 			<button data-category=""  class="filter-button active">Tous</button>
 		</div>
+		<dialog id="modal" class="modal" aria-hidden="true">
+			<div class="modal-container">
+				<div class="first-modal">
+					<span id="closeModal" class="close">&times;</span>
+					<h2>Galerie photo </h2>
+					<div id='error' class="error-message"></div>
+					<div class="galleryModal"></div>
+					<hr class="divider">
+					<button class="addPhotos"> ajouter une photo </button>
+				</div>
+				<div class="second-modal">
+					<div class="pictos">
+						<span id="close" class="close">&times;</span>
+						<span id="returnButton" class="return">
+							<i class="fa-solid fa-arrow-left"></i>
+						</span>
+					</div>
+					<div class="modal2container">
+						<h2>Ajout photos </h2>
+						<div id='errorMessage' class="error-message"></div>
+						<div id="successMessage" class="successMessage"></div>
+						<form class="formContainer">
+							<div class="fileContainer">
+								<div class="filCont1">
+									<i class="fa-regular fa-image"></i>
+									<button  type="button" class="add"> + ajouter photos</button>
+									<p class="addText">jpg, png : 4mo max</p>
+									<input type="file"  id="file" name="file" accept="file/png, file/jpeg, file/jpg"  />
+								</div>
+								<div class="newImg" id="newImg">
+									<img class="imgSelected" id="imgSelected"  src='' alt='image chargée dynamiquement'/>
+								</div>
+
+							</div>
+							<h4> Titre</h4>
+							<input class="inputField" type="text" id="title" name="title" required>
+							<h4>Catégories</h4>
+							<select class="selectOption"  name="worksCategory"
+								id="worksCategory" required>
+								<option value="" > --choisissez une option-- </option>
+							</select>
+							<hr class="divider">
+							<button type="submit" id="submit" class="addPhotos"> Valider </button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</dialog>
 		<div class="gallery">
 		</div>
 	</section>
